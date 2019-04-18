@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Demo</title>
+        <h:outputStylesheet name="style.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup class="input">
+                <h:outputLabel value="Vorname:" for="firstname" />
+                <h:inputText id="firstname" value="#{demoController.model.firstname}" /> <h:message for="firstname" />
+            </h:panelGroup>
+            <h:panelGroup class="input">
+                <h:outputLabel value="Nachname:" for="lastname" />
+                <h:inputText id="lastname" value="#{demoController.model.lastname}" /> <h:message for="lastname" />
+            </h:panelGroup>
+            <h:panelGroup class="input">
+                <h:outputLabel value="Alter:" for="age" /> 
+                <h:inputText id="age" value="#{demoController.model.age}">
+                </h:inputText>
+                <h:message for="age" />
+            </h:panelGroup>
+
+            <h:panelGroup class="input"> 
+                <h:commandButton action="#{demoController.submit()}" value="submit" id="submit"/>
+                <h:commandButton action="#{demoController.transmit()}" value="transmit" id="transmit">
+                    <f:param name="#{systemController.transmitFlag}" />
+                </h:commandButton>
+            </h:panelGroup>
+        </h:form>
+
+        <h:messages globalOnly="false" showDetail="true" showSummary="true"/>
+
+    </h:body>
+</html>
